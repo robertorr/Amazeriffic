@@ -1,15 +1,29 @@
+/*  Amazeriffic CSS style sheet */
+
 body {
     background: #f9e933;
 }
 
-header {
-    background: white;
-}
-
-main {
-    background: white;
-}
-
 header, main, footer {
-    min-width: 850px;
+    min-width: 855px;
+}
+
+header, main {
+    background: white;
+    overflow: auto;
+}
+
+.container {
+    max-width: 855px;
+    margin: auto;
+}
+
+.leftpanel {
+    float: left;
+    width: 570px;
+}
+
+.rightpanel {
+    float: right;
+    width: 285px;
 }
