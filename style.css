@@ -2,10 +2,12 @@
 
 body {
     background: #f9e933;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 100%;
 }
 
 header, main, footer {
-    min-width: 855px;
+    min-width: 900px;
 }
 
 header, main {
@@ -13,17 +15,91 @@ header, main {
     overflow: auto;
 }
 
+header {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-bottom: thin solid darkgray;
+}
+
+footer {
+    padding: 10px;
+    overflow: auto;
+}
+
+h1 {
+    font-size: xx-large;
+    font-family: 'Francois One', sans-serif;
+    padding: 10px;
+}
+
+h2 {
+    font-size: x-large;
+    font-family: 'Francois One', sans-serif;
+    padding: 10px;
+}
+
+h3 {
+    padding-top: 40px;
+    padding-left: 10px;
+    font-family: 'Francois One', sans-serif;
+}
+
+h4 {
+    font-family: 'Francois One', sans-serif;
+    padding: 10px;
+}
+
+main {
+    padding-top: 20px;
+}
+
+main p, ul {
+    padding: 10px;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .container {
-    max-width: 855px;
+    max-width: 900px;
     margin: auto;
 }
 
 .leftpanel {
     float: left;
-    width: 570px;
+    width: 600px;  /* two-thirds */
 }
 
 .rightpanel {
     float: right;
-    width: 285px;
+    width: 200px;  /* one-third */
+}
+
+.brand {
+    font-style: italic;
+    color: #595959;
+}
+
+.contact {
+    padding: 10px;
+}
+
+.subleft {
+    float: left;
+    width: 75px;
+}
+
+.subright {
+    float: right;
+    width: 75px;
+}
+
+.sitemap ul {
+    width: 180px;
 }
