@@ -5,7 +5,13 @@
 var main = function () {
     "use strict";
 
-    console.log("hello world!");
+    $(".tabs a:nth-child(1)").on("click", function() {
+        // make all tabs inactive
+        $(".tabs span").removeClass("active");
+
+        // make first tab active
+        $(".tabs a:nth-child(1) span").addClass("active");
+    });
 };
 
 $(document).ready(main);
