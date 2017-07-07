@@ -14,47 +14,44 @@ var main = function () {
         "Get groceries"
     ];
 
+    const mainSelector = "main .content";
+    const inputSelector = mainSelector + " input";
+    const buttonSelector = mainSelector + " button";
     const tabsSelector = ".tabs a span";
+
     $(tabsSelector).toArray().forEach(function (element) {
         $(element).on("click", function () {
 
-            var jqElement = $(element);
-            const mainSelector = "main .content";
-            const inputSelector = mainSelector + " input";
-            const buttonSelector = mainSelector + " button";
-
             var addNewTodo = function () {
                 if ($(inputSelector).val() !== "") {
-                    console.log("adding task: " + $(inputSelector).val());
                     todos.push($(inputSelector).val());
                     $(inputSelector).val("");
-                    console.log("todos: " + todos);
                 }
             };
 
+            var jqContent = null;
+            var jqElement = $(element);
             $(tabsSelector).removeClass("active");
             jqElement.addClass("active");
             $(mainSelector).empty();
 
             if (jqElement.parent().is(":nth-child(1)")) {
-                console.log("todos: " + todos);
-                var jqContent1 = $("<ul>");
+                jqContent = $("<ul>");
                 var index = todos.length - 1;
                 while (index >= 0) {
-                    jqContent1.append($("<li>").text(todos[index]));
+                    jqContent.append($("<li>").text(todos[index]));
                     index -= 1;
                 }
-                $(mainSelector).append(jqContent1);
+                $(mainSelector).append(jqContent);
             } else if (jqElement.parent().is(":nth-child(2)")) {
-                console.log("todos: " + todos);
-                var jqContent2 = $("<ul>");
+                jqContent = $("<ul>");
                 todos.forEach(function (todo) {
-                    jqContent2.append($("<li>").text(todo));
+                    jqContent.append($("<li>").text(todo));
                 });
-                $(mainSelector).append(jqContent2);
+                $(mainSelector).append(jqContent);
             } else if (jqElement.parent().is(":nth-child(3)")) {
-                var jqContent3 = $("<input type=\"text\" /><button>+</button>");
-                $(mainSelector).append(jqContent3);
+                jqContent = $("<input type=\"text\" /><button>+</button>");
+                $(mainSelector).append(jqContent);
                 $(inputSelector).on("keypress", function (event) {
                     if (event.keyCode === 13) {
                         addNewTodo();
