@@ -18,16 +18,15 @@ var main = function () {
     const inputSelector = mainSelector + " input";
     const buttonSelector = mainSelector + " button";
     const tabsSelector = ".tabs a span";
+    var addNewTodo = function () {
+        if ($(inputSelector).val() !== "") {
+            todos.push($(inputSelector).val());
+            $(inputSelector).val("");
+        }
+    };
 
     $(tabsSelector).toArray().forEach(function (element) {
         $(element).on("click", function () {
-
-            var addNewTodo = function () {
-                if ($(inputSelector).val() !== "") {
-                    todos.push($(inputSelector).val());
-                    $(inputSelector).val("");
-                }
-            };
 
             var jqContent = null;
             var jqElement = $(element);
