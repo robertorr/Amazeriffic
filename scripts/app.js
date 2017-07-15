@@ -2,6 +2,11 @@
  * Created by orrro on 7/5/2017.
  */
 
+var organizeByTag = function (todoObjects) {
+    "use strict";
+    return null;
+};
+
 var main = function (todoObjs) {
     "use strict";
 
@@ -75,11 +80,6 @@ var main = function (todoObjs) {
     });
 
     $(".tabs a:first-child span").trigger("click");
-};
-
-var organizeByTag = function (todoObjects) {
-    "use strict";
-    return null;
 };
 
 $(document).ready(function () {
