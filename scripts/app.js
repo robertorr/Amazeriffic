@@ -2,22 +2,17 @@
  * Created by orrro on 7/5/2017.
  */
 
-var main = function () {
+var main = function (todoObjs) {
     "use strict";
-
-    var todos = [
-        "Finish web apps book",
-        "Take Sophia to the park",
-        "Answer emails",
-        "Prep for job search",
-        "Make up new todos",
-        "Get groceries"
-    ];
 
     const mainSelector = "main .content";
     const inputSelector = mainSelector + " input";
     const buttonSelector = mainSelector + " button";
     const tabsSelector = ".tabs a span";
+
+    var todos = todoObjs.map(function (todo) {
+        return todo.description;
+    });
     var addNewTodo = function () {
         if ($(inputSelector).val() !== "") {
             todos.push($(inputSelector).val());
@@ -49,6 +44,21 @@ var main = function () {
                 });
                 $(mainSelector).append(jqContent);
             } else if (jqElement.parent().is(":nth-child(3)")) {
+                console.log("tags tab clicked");
+
+                var todosByTags = organizeByTag(todoObjs);
+                todosByTags.forEach(function (tag) {
+                    var jqTagName = $("<h3>").text(tag.name);
+                    jqContent = $("<ul>");
+                    tag.todos.forEach(function (description) {
+                        var jqli = $("<li>").text(description);
+                        jqContent.append(jqli);
+                    });
+                    $("main .content").append(jqTagName);
+                    $("main .content").append(jqContent);
+                });
+
+            } else if (jqElement.parent().is(":nth-child(4)")) {
                 jqContent = $("<input type=\"text\" /><button>+</button>");
                 $(mainSelector).append(jqContent);
                 $(inputSelector).on("keypress", function (event) {
@@ -67,4 +77,14 @@ var main = function () {
     $(".tabs a:first-child span").trigger("click");
 };
 
-$(document).ready(main);
+var organizeByTag = function (todoObjects) {
+    "use strict";
+    return null;
+};
+
+$(document).ready(function () {
+    "use strict";
+    $.getJSON("todos.json", function (todoObjects) {
+        main(todoObjects);
+    });
+});
